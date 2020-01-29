@@ -2,22 +2,15 @@
   "name": "simple-react-app-dockerized",
   "version": "1.0.0",
   "description": "Simple React app that is dockerized",
-  "keywords": [
-    "react",
-    "docker",
-    "compose",
-    "edit",
-    "webpack",
-    "babel"
-  ],
+  "keywords": ["react", "docker", "compose", "edit", "webpack", "babel"],
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "webpack-dev-server": "webpack-dev-server",
+    "start": "webpack-dev-server -w",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "watch": "webpack --watch ",
-    "build": "webpack --config webpack.config.prod.js",
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "build": "webpack --config webpack.config.prod.js"
   },
   "author": "David Kindler",
   "license": "ISC",
