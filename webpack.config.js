@@ -9,6 +9,9 @@ module.exports = {
     path: __dirname + '/dist',
     filename: 'index_bundle.js'
   },
+  optimization: {
+    minimize: false
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
@@ -19,19 +22,26 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: 'babel-loader',
-        query: { presets: ['react', 'es2015'] },
-        test: /\.jsx?$/,
-        exclude: /(node_modules)/
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader"
+          }
+        ]
       }
     ]
-  },
-  resolve: {
-    extensions: [' ', '.js', '.jsx', '.json']
   },
   devServer: {
     historyApiFallback: true,
     contentBase: './',
+    host: 'localhost',
     port: 8000,
     headers: { 'Access-Control-Allow-Origin': '*' }
   }
