@@ -7,7 +7,7 @@ class Content extends Component {
   render() {
     return (
       <div className='row'>
-        <h1>It Works!!!</h1>
+        <h1>It Works!!! </h1>
       </div>
     )
   }
