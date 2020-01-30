@@ -8,6 +8,3 @@ services:
       NODE_ENV: production
     ports:
       - 8000:8000
-    volumes:
-      - /usr/src/app/node_modules
-      - .:/usr/src/app
